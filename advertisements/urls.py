@@ -1,18 +1,13 @@
 from django.urls import path
 
 from advertisements.apps import AdvertisementsConfig
-from advertisements.views import (
-    AnnouncementRetrieveAPIView,
-    AnnouncementListAPIView,
-    AnnouncementCreateAPIView,
-    AnnouncementUpdateAPIView,
-    AnnouncementDestroyAPIView,
-    ReviewRetrieveAPIView,
-    ReviewListAPIView,
-    ReviewCreateAPIView,
-    ReviewUpdateAPIView,
-    ReviewDestroyAPIView,
-)
+from advertisements.views import (AnnouncementCreateAPIView,
+                                  AnnouncementDestroyAPIView,
+                                  AnnouncementListAPIView,
+                                  AnnouncementRetrieveAPIView,
+                                  AnnouncementUpdateAPIView,
+                                  ReviewCreateAPIView, ReviewDestroyAPIView,
+                                  ReviewListAPIView, ReviewUpdateAPIView)
 
 app_name = AdvertisementsConfig.name
 
@@ -36,11 +31,6 @@ urlpatterns = [
     ),
     path(
         "review_delete/<int:pk>/", ReviewDestroyAPIView.as_view(), name="review_delete"
-    ),
-    path(
-        "review/<int:pk>/",
-        ReviewRetrieveAPIView.as_view(),
-        name="review",
     ),
     path("reviews/", ReviewListAPIView.as_view(), name="reviews"),
 ]

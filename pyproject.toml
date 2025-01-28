@@ -18,6 +18,7 @@ django-cors-headers = "^4.6.0"
 drf-yasg = "^1.21.8"
 djangorestframework-simplejwt = "^5.4.0"
 django-filter = "^24.3"
+djoser = "^2.3.1"
 
 
 [build-system]

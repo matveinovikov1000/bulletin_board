@@ -1,4 +1,5 @@
 from django.db import models
+
 from users.models import User
 
 
@@ -20,6 +21,8 @@ class Announcement(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
+        blank=True,
+        null=True,
         verbose_name="Автор объявления",
         help_text="Укажите автора объявления",
         related_name="announcements",
@@ -36,7 +39,7 @@ class Announcement(models.Model):
             "price",
             "description",
             "author",
-            "created_at",
+            "-created_at",
         ]
 
     def __str__(self):
@@ -59,6 +62,7 @@ class Review(models.Model):
     ad = models.ForeignKey(
         Announcement,
         on_delete=models.SET_NULL,
+        blank=True,
         null=True,
         verbose_name="Объявление, под которым указан отзыв",
         help_text="Укажите объявление, под которым указан отзыв",
